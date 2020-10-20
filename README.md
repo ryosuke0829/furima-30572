@@ -2,51 +2,55 @@
 
 ## users table
 
-| Column             | Type                | Options                 |
-|--------------------|---------------------|-------------------------|
-| email              | string              | null: false             |
-| password           | string              | null: false             |
-| nickname           | string              | null: false             |
-| birth_date         | text                | null: false             |
+| Column             | Type                | Options           |
+|--------------------|---------------------|-------------------|
+| email              | string              | null: false       |
+| password           | string              | null: false       |
+| nickname           | string              | null: false       |
+| birth_date         | text                | null: false       |
+| first_name         | string              | null: false       |
+| last_name          | string              | null: false       |
+| first_name_kana    | string              | null: false       |
+| last_name_kana     | string              | null: false       |
 
 
 ### Association
 
-* has_many :items
+* has_many :item
 * has_many :purchases
 
 ## items table
 
-| Column            | Type       | Options           |
-|-------------------|------------|-------------------|
-| user              | references | foreign_key: true |
-| name              | string     | null: false       |
-| category_id       | integer    | null: false       |
-| condition_id      | integer    | null: false       |
-| price             | integer    | null: false       |
-| image_id          | integer    | null: false       |
-| handling_charge    | integer    | null: false       |
-| description       | text       | null: false       |
-| prefectures_id    | integer    | null: false       |
+| Column             | Type       | Options           |
+|--------------------|------------|-------------------|
+| user               | references | foreign_key: true |
+| name               | string     | null: false       |
+| category_id        | integer    | null: false       |
+| condition_id       | integer    | null: false       |
+| price              | integer    | null: false       |
+| handling_charge_id | integer    | null: false       |
+| description        | text       | null: false       |
+| prefectures_id     | integer    | null: false       |
+| shipping_date_id   | integer    | null: false       |
 
 
 ### Association
 
-- belongs_to :users
-- has_one :purchases
+- belongs_to :user
+- has_one :purchase
 
 ## purchases table
 
 | Column      | Type       | Options           |
 |-------------|------------|-------------------|
-| user        | references | oreign_key: true  |
+| user        | references | foreign_key: true |
 | item        | references | foreign_key: true |
 
 ### Association
 
-- belongs_to :users
-- belongs_to :items
-- has_one :addresses
+- belongs_to :user
+- belongs_to :item
+- has_one :address
 
 ## addresses table
 
@@ -56,9 +60,10 @@
 | prefectures_id  | integer    | null: false       |
 | city            | string     | null: false       |
 | street_number   | string     | null: false       |
-| building_name   | string     | null: false       |
+| building_name   | string     |                   |
 | phone_number    | string     | null: false       |
+| purchase        | references | null: false       |
 
 ### Association
 
-- belongs_to :purchases
+- belongs_to :purchase
