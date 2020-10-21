@@ -7,7 +7,7 @@
 | email              | string              | null: false       |
 | password           | string              | null: false       |
 | nickname           | string              | null: false       |
-| birth_date         | text                | null: false       |
+| birth_date         | date                | null: false       |
 | first_name         | string              | null: false       |
 | last_name          | string              | null: false       |
 | first_name_kana    | string              | null: false       |
@@ -16,7 +16,7 @@
 
 ### Association
 
-* has_many :item
+* has_many :items
 * has_many :purchases
 
 ## items table
