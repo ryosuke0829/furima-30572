@@ -14,7 +14,4 @@ class User < ApplicationRecord
   has_many :items, dependent: :destroy
 
   validates :nickname, presence: true, length: { maximum: 40 }
-
-  VALID_PASSWORD_REGEX = /\A[a-z0-9]+\z/i
-  validates :password, format: { with: VALID_PASSWORD_REGEX }
 end
