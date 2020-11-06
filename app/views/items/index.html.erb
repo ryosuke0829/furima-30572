@@ -179,7 +179,7 @@
  <% if user_signed_in? && @user != current_user %>
     <%= link_to '出品する', new_item_path, class:'purchase-btn-text' %>
   <% else %>
-    <%= link_to '出品する', items_path, class:'purchase-btn-text' %>
+    <%= link_to '出品する', new_user_session_path, class:'purchase-btn-text' %>
   <% end %>
   <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
 </div>
