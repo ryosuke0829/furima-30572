@@ -30,7 +30,7 @@
 | price              | integer    | null: false       |
 | handling_charge_id | integer    | null: false       |
 | description        | text       | null: false       |
-| prefectures_id     | integer    | null: false       |
+| prefecture_id      | integer    | null: false       |
 | shipping_date_id   | integer    | null: false       |
 
 
